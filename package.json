@@ -1,0 +1,26 @@
+{
+  "name": "kurstore",
+  "description": "A cursor implementation for focusing on atoms with immutable data structures",
+  "version": "0.1.0",
+  "license": "BSD",
+  "main": "kurtsore.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dialelo/kurtsore.git"
+  },
+  "readmeFilename": "README.md",
+  "keywords": [
+    "atom",
+    "immutable",
+    "cursor",
+    "react"
+  ],
+  "devDependencies": {
+    "atomo": "0.1.1",
+    "immutable": "^3.6.2",
+    "jest-cli": "^0.2.2"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
