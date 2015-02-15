@@ -14,6 +14,12 @@ function cursor(atomOrCursor, maybePath){
     return new Cursor(atomOrCursor, maybePath);
 };
 
+// ================================================================================
+//  Static methods
+
+Cursor.prototype.isCursor = function(maybeCursor) {
+    return maybeCursor instanceof Cursor;
+};
 
 // ================================================================================
 //  Cursor derivation
@@ -89,7 +95,7 @@ function toPath(maybePath){
 function toState(atomOrCursor){
     if (atomOrCursor instanceof atomo.Atom){
         return atomOrCursor;
-    } else if (atomOrCursor instanceof Cursor){
+    } else if (Cursor.isCursor(atomOrCursor)){
         return atomOrCursor.state;
     } else {
         throw new Error("The state must be an atom or a cursor");
