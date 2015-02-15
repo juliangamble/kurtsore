@@ -1,5 +1,5 @@
 {
-  "name": "kurstore",
+  "name": "kurtsore",
   "description": "A cursor implementation for focusing on atoms with immutable data structures",
   "version": "0.1.0",
   "license": "BSD",
