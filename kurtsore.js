@@ -97,7 +97,7 @@ function toPath(maybePath){
 function toState(atomOrCursor){
     if (atomOrCursor instanceof atomo.Atom){
         return atomOrCursor;
-    } else if (Cursor.prototype.isCursor(atomOrCursor)){
+    } else if (isCursor(atomOrCursor)){
         return atomOrCursor.state;
     } else {
         throw new Error("The state must be an atom or a cursor");
