@@ -15,11 +15,13 @@ function cursor(atomOrCursor, maybePath){
 };
 
 // ================================================================================
-//  Static methods
+//  Type checking
 
-Cursor.prototype.isCursor = function(maybeCursor) {
+function isCursor(maybeCursor){
     return maybeCursor instanceof Cursor;
-};
+}
+
+Cursor.prototype.isCursor = isCursor;
 
 // ================================================================================
 //  Cursor derivation
@@ -107,5 +109,6 @@ function toState(atomOrCursor){
 
 module.exports = {
     cursor: cursor,
-    Cursor: Cursor
+    Cursor: Cursor,
+    isCursor: isCursor
 };
