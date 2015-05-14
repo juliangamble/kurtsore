@@ -1,3 +1,7 @@
+# 0.1.3
+
+- Make cursors behave nicely with non-existent paths
+
 # 0.1.2
 
 - Expose 'isCursor' at module level
