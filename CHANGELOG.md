@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Fix bug when using cursors to a top-level, non-associative data structure
+
 # 0.1.3
 
 - Make cursors behave nicely with non-existent paths
