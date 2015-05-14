@@ -1,13 +1,17 @@
 var immutable = require("immutable"),
     atomo = require("atomo");
 
+function safeGetIn(maybeMap, path){
+    return maybeMap && maybeMap.getIn && maybeMap.getIn(path);
+}
+
 // ================================================================================
 //  Constructors
 
 function Cursor(atomOrCursor, maybePath){
     this.state = toState(atomOrCursor);
     this.path = toPath(maybePath);
-    this.snapshot = this.state.deref().getIn(this.path);
+    this.snapshot = safeGetIn(this.state.deref(), this.path);
 };
 
 function cursor(atomOrCursor, maybePath){
@@ -40,7 +44,7 @@ Cursor.prototype.deref = function(){
     if (this.path.isEmpty()){
         return st;
     } else {
-        return st.getIn(this.path);
+        return safeGetIn(st, this.path);
     }
 };
 

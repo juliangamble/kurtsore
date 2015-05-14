@@ -45,6 +45,13 @@ describe("Cursor", function(){
         expect(cursor.snapshot).toBe(sampleData);
     });
 
+    it("can be derived even when the path doesn't exist", function(){
+        var emptyAtom = a.atom(),
+            cursor = k.cursor(emptyAtom, "foo");
+
+        expect(cursor.deref()).toBe(undefined);
+    });
+
     it("keeps a snapshot of the value of the substructure within the atom when they are derived", function(){
         var cursor = k.cursor(atom),
             derivedCursor = cursor.derive('a');
