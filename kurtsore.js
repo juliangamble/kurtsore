@@ -55,7 +55,7 @@ Cursor.prototype.swap = function(f /*, args */) {
     var next = f.apply(null, args),
         path = this.path;
     this.state.swap(function(st){
-        return st.setIn(path, next);
+        return path.isEmpty() ? next : st.setIn(path, next);
     });
     return next;
 };
@@ -63,7 +63,7 @@ Cursor.prototype.swap = function(f /*, args */) {
 Cursor.prototype.reset = function(next){
     var path = this.path;
     this.state.swap(function(st){
-        return st.setIn(path, next);
+        return path.isEmpty() ? next : st.setIn(path, next);
     });
     return next;
 };

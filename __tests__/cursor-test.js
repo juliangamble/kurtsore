@@ -29,6 +29,17 @@ describe("Cursor", function(){
         expect(cursor.state).toBe(atom);
     });
 
+    it("can be a reference to a non-associative value", function(){
+        var theAtom = a.atom(""),
+            theCursor = k.cursor(theAtom);
+
+        expect(theCursor.deref()).toBe("");
+        theCursor.reset("Foo");
+        expect(theAtom.deref()).toBe("Foo");
+        theCursor.swap(function(s) { return s + " Bar"; });
+        expect(theAtom.deref()).toBe("Foo Bar");
+    });
+
     it("when are derived, they still keep a reference to the atom they are based on", function(){
         var cursor = k.cursor(atom),
             derivedCursor = cursor.derive('a');
